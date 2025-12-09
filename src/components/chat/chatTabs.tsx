@@ -133,7 +133,7 @@ const ChatTabs = () => {
               To:{' '}
               <span className="font-medium text-Gray-950">{selectedTitle}</span>
             </p>
-            <span className="pointer-events-none absolute inset-y-0 right-3 3xl:right-5 flex items-center">
+            <span className="pointer-events-none absolute inset-y-0 ltr:right-4 rtl:left-4 flex items-center">
               {hasUnreadMessages && (
                 <span className="shake pr-1 -mb-1">
                   <i className="pnm-chat shake" />
