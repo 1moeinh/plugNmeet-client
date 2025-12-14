@@ -64,7 +64,7 @@ const WebcamMenuItems = ({
   return (
     <MenuItems
       static
-      className="menu origin-top-right z-10 absolute ltr:-left-8 md:ltr:left-0 rtl:right-0 bottom-12 border border-Gray-100 dark:border-Gray-700 bg-white dark:bg-dark-primary shadow-lg rounded-2xl overflow-hidden p-2 w-max"
+      className="menu origin-top-right z-10 absolute ltr:-left-8 md:ltr:left-0 rtl:left-0 bottom-12 border border-Gray-100 dark:border-Gray-700 bg-white dark:bg-dark-primary shadow-lg rounded-2xl overflow-hidden p-2 w-max"
     >
       <div className="title h-8 w-full flex items-center text-xs leading-none text-Gray-700 dark:text-dark-text px-3 uppercase">
         {t('footer.icons.select-webcam')}
