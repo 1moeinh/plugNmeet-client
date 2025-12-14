@@ -22,10 +22,15 @@ const FormattedInputField = ({
   type = 'text',
 }: IFormattedInputFieldProps) => {
   const inputClasses = clsx(
-    'default-input rounded-[8px] h-10 w-full',
+    'default-input rounded-[8px] h-10 w-full px-3 border',
+
+    'border-Gray-300 text-Gray-950 dark:border-dark-text dark:text-dark-text',
+
     {
-      'dark:border-dark-text bg-transparent dark:text-dark-text cursor-default':
-        readOnly,
+      'bg-white dark:bg-dark-secondary focus:border-Blue2-500 focus:outline-hidden':
+        !readOnly,
+
+      'bg-transparent cursor-default opacity-80': readOnly,
     },
     label ? 'max-w-full sm:max-w-[250px]' : '',
   );
