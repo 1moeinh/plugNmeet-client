@@ -61,7 +61,7 @@ const Header = () => {
               {title}
             </h2>
           </div>
-          <div className="right flex items-center justify-end relative -right-3 w-1/2 md:w-auto gap-0.5 z-30 order-2 md:order-3">
+          <div className="right flex items-center justify-end relative rtl:-left-3 ltr:-right-3 w-1/2 md:w-auto gap-0.5 z-30 order-2 md:order-3">
             <DurationView />
             <UserNotifications />
             <VolumeControl />
