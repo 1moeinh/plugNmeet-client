@@ -94,7 +94,7 @@ const ParticipantsComponent = () => {
   return (
     <div className="relative z-10 w-full bg-Gray-25 dark:bg-dark-primary border-l border-Gray-200 dark:border-Gray-800 h-full">
       <div
-        className="inline-block absolute z-50 right-3 3xl:right-5 top-[10px] 3xl:top-[18px] text-Gray-600 dark:text-white cursor-pointer"
+        className="inline-block absolute z-50 ltr:right-3 rtl:left-3 top-[10px] 3xl:top-[18px] text-Gray-600 cursor-pointer dark:text-white"
         onClick={closePanel}
       >
         <CloseIconSVG />
@@ -116,7 +116,7 @@ const ParticipantsComponent = () => {
               type="text"
               name="search-participants"
               id="search-participants"
-              placeholder="Search for Participant"
+              placeholder={t('SearchParticipant')}
               className="text-Gray-950 dark:text-white placeholder:text-Gray-600 dark:placeholder:text-white h-9 3xl:h-11 rounded-lg 3xl:rounded-[15px] bg-white dark:bg-dark-primary border border-Gray-200 dark:border-Gray-800 w-full pl-8 3xl:pl-10 outline-hidden text-xs 3xl:text-sm"
               onChange={(e) => setSearchParticipant(e.target.value)}
             />
