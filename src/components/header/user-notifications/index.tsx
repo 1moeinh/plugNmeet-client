@@ -22,6 +22,7 @@ import { store, useAppSelector } from '../../../store';
 import { UserNotification } from '../../../store/slices/interfaces/roomSettings';
 import { PopupCloseSVGIcon } from '../../../assets/Icons/PopupCloseSVGIcon';
 import { NotifyIconSVG } from '../../../assets/Icons/NotifyIconSVG';
+import { useTranslation } from 'react-i18next';
 
 const UserNotifications = () => {
   const toastId = useRef<number | string>('toastId');
@@ -123,7 +124,7 @@ const UserNotifications = () => {
       );
     }
   };
-
+  const { t } = useTranslation();
   return (
     <Popover className="relative flex">
       {({ open, close }) => (
@@ -149,7 +150,7 @@ const UserNotifications = () => {
               <PopoverPanel className="flex flex-col">
                 <div className="top flex items-center justify-between h-10 px-3 border-b border-Gray-200">
                   <p className="text-sm text-Gray-950 font-medium leading-tight">
-                    Notifications
+                    {t('header.room-settings.notifications')}
                   </p>
                   <div
                     className="close cursor-pointer"
