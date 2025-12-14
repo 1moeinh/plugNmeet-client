@@ -34,6 +34,11 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+  html,
+  body {
+    font-family: 'IRANSansXFaNum-medium', 'Inter', sans-serif !important;
+  }
+
   *,
   ::after,
   ::before,
