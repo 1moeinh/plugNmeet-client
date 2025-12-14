@@ -94,7 +94,7 @@ const ChatTabs = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
-  const { chatOptions, selectedChatOption, selectedTitle, hasUnreadMessages } =
+  const { chatOptions, selectedChatOption, hasUnreadMessages } =
     useAppSelector(selectChatTabsData);
 
   const onChange = (id: string) => {
@@ -115,7 +115,7 @@ const ChatTabs = () => {
     <div className="h-full">
       <div className="top-chat-header flex items-center gap-2 h-10 3xl:h-14 px-3 3xl:px-5 justify-between">
         <div className="left flex items-center gap-3">
-          <p className="text-sm 3xl:text-base text-Gray-950 3xl:font-medium leading-tight">
+          <p className="text-sm 3xl:text-base text-Gray-950 dark:text-white 3xl:font-medium leading-tight">
             {selectedChatOption === 'public'
               ? t('left-panel.public-chat')
               : t('left-panel.private-chat')}
@@ -128,10 +128,12 @@ const ChatTabs = () => {
       </div>
       <Listbox value={selectedChatOption} onChange={onChange}>
         <div className="relative z-10 chat-tabs">
-          <ListboxButton className="flex items-center justify-between border-y border-Gray-200 h-8 3xl:h-10 w-full outline-hidden px-3 3xl:px-5 text-xs 3xl:text-sm text-Gray-700 cursor-pointer">
+          <ListboxButton className="flex items-center justify-between border-y dark:border-Gray-800 border-Gray-200 h-8 3xl:h-10 w-full outline-hidden px-3 3xl:px-5 text-xs 3xl:text-sm text-Gray-700 cursor-pointer">
             <p className="block truncate">
-              To:{' '}
-              <span className="font-medium text-Gray-950">{selectedTitle}</span>
+              {t('to')}:{' '}
+              <span className="font-medium text-Gray-950 dark:text-white">
+                {t('left-panel.public-chat')}
+              </span>
             </p>
             <span className="pointer-events-none absolute inset-y-0 ltr:right-4 rtl:left-4 flex items-center">
               {hasUnreadMessages && (
@@ -162,7 +164,7 @@ const ChatTabs = () => {
             leaveFrom="opacity-100 z-90"
             leaveTo="opacity-0"
           >
-            <ListboxOptions className="absolute max-h-60 w-[calc(100%-8px)] left-1 border border-Gray-100 bg-white shadow-lg rounded-2xl overflow-hidden p-2">
+            <ListboxOptions className="absolute max-h-60 w-[calc(100%-8px)] left-1 border border-Gray-200 dark:border-Gray-800 bg-white shadow-lg rounded-2xl overflow-hidden p-2">
               <div className="title h-8 3xl:h-10 w-full flex items-center text-xs 3xl:text-sm leading-none text-Gray-700 px-3 uppercase">
                 {t('left-panel.select-chat-conversation-title')}
               </div>

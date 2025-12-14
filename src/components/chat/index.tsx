@@ -106,17 +106,18 @@ const ChatComponent = () => {
 
   return (
     <div
-      className="relative z-10 w-full bg-Gray-25 border-l border-Gray-200 h-full"
+      className="flex flex-col z-10 w-full bg-Gray-25 border-l dark:border-Gray-800 border-Gray-200 h-full dark:bg-dark-primary"
       onDrop={handleOnDrop}
       onDragOver={(e) => e.preventDefault()}
     >
-      <div className="h-full">
+      <div className="flex-1 overflow-hidden relative">
         <div className="all-MessageModule-wrap h-full">
           <ChatTabs />
         </div>
       </div>
+
       {canShowChatInput && (
-        <div className="message-form absolute bottom-0 z-30 border-t border-Gray-200 bg-white w-full px-3 3xl:px-5 py-2 3xl:py-4 flex items-center">
+        <div className="message-form w-full shrink-0 px-3 3xl:px-5 py-2 3xl:py-4 border-t dark:border-Gray-800 border-Gray-200 bg-white dark:bg-dark-primary flex items-center z-30">
           <TextBoxArea />
         </div>
       )}

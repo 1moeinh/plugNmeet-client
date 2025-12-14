@@ -8,18 +8,21 @@ import { participantsSelector } from '../../../../store/slices/participantSlice'
 import Avatar from './avatar';
 import { AiIconSVG } from '../../../../assets/Icons/AiIconSVG';
 
-export const SystemMessage = memo(({ message }: { message: string }) => {
-  return (
-    <div className="content w-full system flex items-center gap-2 text-center my-2">
-      <div className="flex-1 border-t border-dashed border-Gray-300" />
-      <p
-        className="message-content text-xs text-Gray-600 px-2"
-        dangerouslySetInnerHTML={{ __html: message }}
-      />
-      <div className="flex-1 border-t border-dashed border-Gray-300" />
-    </div>
-  );
-});
+export const SystemMessage = memo(
+  ({ message: _message }: { message: string }) => {
+    return (
+      <div className="content w-full system flex items-center gap-2 text-center my-2">
+        {/*<div className="flex-1 border-t border-dashed border-Gray-300" />*/}
+        {/*<p*/}
+        {/*  className="message-content text-xs text-Gray-600 px-2"*/}
+        {/*  dangerouslySetInnerHTML={{ __html: message }}*/}
+        {/*/>*/}
+
+        {/*<div className="flex-1 border-t border-dashed border-Gray-300" />*/}
+      </div>
+    );
+  },
+);
 SystemMessage.displayName = 'SystemMessage';
 
 export const MyMessage = memo(
@@ -27,12 +30,12 @@ export const MyMessage = memo(
     const { t } = useTranslation();
     return (
       <div className="content me w-[calc(100%-36px)] 3xl:w-[calc(100%-48px)] ml-auto">
-        <div className="name min-h-5 flex items-center text-xs 3xl:text-sm text-Gray-800 font-medium pb-1.5 capitalize justify-between">
+        <div className="name min-h-5 flex items-center text-xs 3xl:text-sm text-Gray-800 dark:text-white font-medium pb-1.5 capitalize justify-between">
           <p>{t('right-panel.you')}</p>
           <p className="time text-xs text-Gray-600">{formatDate(sentAt)}</p>
         </div>
         <p
-          className="message-content py-1.5 3xl:py-2.5 px-2.5 3xl:px-3.5 border border-Gray-200 rounded-lg 3xl:rounded-2xl overflow-hidden rounded-br-none text-sm 3xl:text-base text-Gray-950 break-words"
+          className="message-content py-1.5 3xl:py-2.5 px-2.5 3xl:px-3.5 border border-Gray-200 rounded-lg 3xl:rounded-2xl overflow-hidden rounded-br-none text-sm 3xl:text-base text-Gray-950 dark:text-white break-words"
           dangerouslySetInnerHTML={{ __html: message }}
         />
       </div>
@@ -51,7 +54,7 @@ export const OtherUserMessage = memo(({ body }: { body: ChatMessage }) => {
     <>
       <Avatar userId={body.fromUserId} name={body.fromName} />
       <div className="content w-[calc(100%-36px)] 3xl:w-[calc(100%-48px)] flex-1">
-        <div className="name min-h-5 flex items-center text-sm text-Gray-800 font-medium pb-1.5 capitalize justify-between">
+        <div className="name min-h-5 flex items-center text-sm text-Gray-800 dark:text-white font-medium pb-1.5 capitalize justify-between">
           <p>
             {displayName}
             {!participantName && (
@@ -63,7 +66,7 @@ export const OtherUserMessage = memo(({ body }: { body: ChatMessage }) => {
           </p>
         </div>
         <p
-          className="message-content py-1.5 3xl:py-2.5 px-2.5 3xl:px-3.5 border border-Gray-200 rounded-lg 3xl:rounded-2xl overflow-hidden text-sm 3xl:text-base text-Gray-950 break-words rounded-tl-none bg-Gray-50"
+          className="message-content py-1.5 3xl:py-2.5 px-2.5 3xl:px-3.5 border border-Gray-200 rounded-lg 3xl:rounded-2xl overflow-hidden text-sm 3xl:text-base text-Gray-950 dark:text-white break-words rounded-tl-none bg-Gray-50"
           dangerouslySetInnerHTML={{ __html: body.message }}
         />
       </div>

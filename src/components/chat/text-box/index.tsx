@@ -195,7 +195,7 @@ const TextBoxArea = () => {
     : t('right-panel.chat-box-placeholder');
 
   return (
-    <div className="flex items-center justify-between border border-Gray-200 rounded-2xl 3xl:rounded-3xl p-1.5 w-full">
+    <div className="flex items-center justify-between border dark:border-Gray-800 border-Gray-200 rounded-2xl 3xl:rounded-3xl p-1.5 w-full">
       {showSendFile && (
         <FileSend
           lockSendFile={isFileSendingLocked}
