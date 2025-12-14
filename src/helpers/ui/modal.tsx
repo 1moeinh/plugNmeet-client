@@ -86,12 +86,15 @@ const Modal = ({
                   className="cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
-                  <PopupCloseSVGIcon classes="text-Gray-600" />
+                  {/* Added: dark:text-gray-400 dark:hover:text-white */}
+                  <PopupCloseSVGIcon classes="text-Gray-600 dark:text-gray-400 dark:hover:text-white transition-colors" />
                 </Button>
               </DialogTitle>
+
               <div
                 className={clsx(
-                  'p-4 bg-Gray-25 dark:bg-dark-primary rounded-b-xl',
+                  // Added: dark:bg-dark-secondary (to override Gray-25)
+                  'p-4 bg-Gray-25 dark:bg-dark-secondary dark:text-white',
                   customBodyClass,
                 )}
               >
