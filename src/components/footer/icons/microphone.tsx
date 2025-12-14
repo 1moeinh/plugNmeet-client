@@ -288,7 +288,7 @@ const MicrophoneIcon = () => {
       <div className={wrapperClasses}>
         <div className={micWrapClasses}>
           <div className={iconDivClasses} onClick={manageMic}>
-            <span className="tooltip tooltip-left -left-3 rtl:microphone-rtl-left">
+            <span className="tooltip tooltip-left -left-3">
               {getTooltipText()}
             </span>
             {!isActiveMicrophone ? (
