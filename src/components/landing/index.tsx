@@ -212,7 +212,7 @@ const Landing = ({
                 )}
               </div>
             </div>
-            <div className="right w-full md:w-1/2 md:pl-8 3xl:pl-16 sm:py-8 flex items-center">
+            <div className="right w-full md:w-1/2 rtl:md:pr-8 md:pl-8 3xl:pl-16 sm:py-8 flex items-center">
               {showLoadingMsg ? (
                 <div className="inner waiting-room-contents relative md:-mt-10 w-full">
                   {waitForApproval ? (
@@ -248,10 +248,10 @@ const Landing = ({
               ) : (
                 <div className="inner relative w-full">
                   <div className="texts text-center md:text-left">
-                    <h3 className="font-bold text-xl 3xl:text-2xl text-Gray-950 dark:text-white leading-snug pb-2">
+                    <h3 className="font-bold rtl:text-start text-xl 3xl:text-2xl text-Gray-950 dark:text-white leading-snug pb-2">
                       {t('landing.ready-to-join')}
                     </h3>
-                    <p className="text-sm 3xl:text-base text-Gray-800 dark:text-white/90">
+                    <p className="text-sm rtl:text-start 3xl:text-base text-Gray-800 dark:text-white/90">
                       {getJoinPrompt()}
                     </p>
                   </div>
