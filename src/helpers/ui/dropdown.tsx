@@ -90,7 +90,9 @@ const Dropdown = ({
                     <span className="text-Gray-500">{/* Placeholder */}</span>
                   )}
                 </div>
-                <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+                <span
+                  className={`pointer-events-none absolute inset-y-0  ltr:right-4 rtl:left-4 flex items-center`}
+                >
                   <DropdownIconSVG />
                 </span>
               </ListboxButton>
@@ -122,7 +124,7 @@ const Dropdown = ({
                             {option.text}
                           </span>
                           {selected && (
-                            <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-Blue2-500 dark:text-white">
+                            <span className="absolute inset-y-0 ltr:right-0 rtl:left-3 flex items-center pr-3 text-Blue2-500 dark:text-white">
                               <CheckMarkIcon />
                             </span>
                           )}
@@ -168,7 +170,9 @@ const Dropdown = ({
                 <span className="text-Gray-500">{/* Placeholder */}</span>
               )}
             </div>
-            <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+            <span
+              className={`pointer-events-none absolute inset-y-0 ltr:right-4 rtl:left-4 flex items-center`}
+            >
               <DropdownIconSVG />
             </span>
           </ListboxButton>
