@@ -1,4 +1,19 @@
 @font-face {
+  font-family: 'IRANSansXFaNum-Light';
+  src: url('../assets/fonts/IRANSansXFaNum-Light.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANSansXFaNum-medium';
+  src: url('../assets/fonts/IRANSansXFaNum-medium.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'plugnmeet';
   src: url('../assets/fonts/plugnmeet.ttf') format('truetype');
   src: url('../assets/fonts/plugnmeet.woff') format('woff');
