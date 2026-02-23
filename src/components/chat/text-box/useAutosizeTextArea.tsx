@@ -11,7 +11,7 @@ export const useAutosizeTextArea = (
       const boxSizing = style.getPropertyValue('box-sizing');
 
       // We need to reset the height momentarily to get the correct scrollHeight for the textarea
-      textAreaRef.style.height = '0px';
+      textAreaRef.style.height = 'auto';
       const scrollHeight = textAreaRef.scrollHeight;
 
       // If border-box, we need to account for the border width
