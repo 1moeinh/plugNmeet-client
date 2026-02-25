@@ -66,7 +66,7 @@ export const OtherUserMessage = memo(({ body }: { body: ChatMessage }) => {
           </p>
         </div>
         <p
-          className="message-content py-1.5 3xl:py-2.5 px-2.5 3xl:px-3.5 border border-Gray-200 rounded-lg 3xl:rounded-2xl overflow-hidden text-sm 3xl:text-base text-Gray-950 dark:text-white break-words rounded-tl-none bg-Gray-50"
+          className="message-content py-1.5 3xl:py-2.5 px-2.5 3xl:px-3.5 border border-Gray-200 rounded-lg 3xl:rounded-2xl overflow-hidden text-sm 3xl:text-base text-Gray-950 dark:text-white break-words rounded-tl-none bg-Gray-50 dark:bg-Gray-800"
           dangerouslySetInnerHTML={{ __html: body.message }}
         />
       </div>
