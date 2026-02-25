@@ -12,7 +12,8 @@ interface IWebcamMenuItemProps {
   userId: string;
 }
 const WebcamMenuItem = ({ userId }: IWebcamMenuItemProps) => {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const isRtl = i18n.dir() === 'rtl';
   const name = useAppSelector(
     (state) => participantsSelector.selectById(state, userId)?.name,
   );
@@ -73,7 +74,7 @@ const WebcamMenuItem = ({ userId }: IWebcamMenuItemProps) => {
   return (
     <MenuItem>
       <button
-        className="min-h-8 cursor-pointer py-0.5 w-full text-sm text-left leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50"
+        className={`min-h-8 cursor-pointer mt-1 py-0.5 w-full text-sm leading-none ${isRtl ? 'text-right' : 'text-left'} font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50`}
         onClick={handleWebcamAction}
       >
         {text}

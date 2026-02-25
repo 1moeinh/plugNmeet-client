@@ -13,7 +13,6 @@ import { store, useAppSelector } from '../../../../../store';
 import { participantsSelector } from '../../../../../store/slices/participantSlice';
 import sendAPIRequest from '../../../../../helpers/api/plugNmeetAPI';
 import { getNatsConn } from '../../../../../helpers/nats';
-
 interface IMicMenuItemProps {
   userId: string;
 }
@@ -28,7 +27,8 @@ const MicMenuItem = ({ userId }: IMicMenuItemProps) => {
     (state) => participantsSelector.selectById(state, userId)?.name,
   );
   const session = store.getState().session;
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.dir() === 'rtl';
   const conn = getNatsConn();
 
   const { text, task } = useMemo(() => {
@@ -118,7 +118,7 @@ const MicMenuItem = ({ userId }: IMicMenuItemProps) => {
   return (
     <MenuItem>
       <button
-        className="min-h-8 cursor-pointer py-0.5 w-full text-sm text-left leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50"
+        className={`min-h-8 cursor-pointer py-0.5 mt-1 w-full text-sm ${isRtl ? 'text-right' : 'text-left'} leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50`}
         onClick={handleMicAction}
       >
         {text}

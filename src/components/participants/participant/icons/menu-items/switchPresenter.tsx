@@ -12,7 +12,6 @@ import { create, fromBinary, toBinary } from '@bufbuild/protobuf';
 import { useAppSelector } from '../../../../../store';
 import { participantsSelector } from '../../../../../store/slices/participantSlice';
 import sendAPIRequest from '../../../../../helpers/api/plugNmeetAPI';
-
 interface ISwitchPresenterMenuItemProps {
   userId: string;
 }
@@ -22,7 +21,8 @@ const SwitchPresenterMenuItem = ({ userId }: ISwitchPresenterMenuItemProps) => {
     (state) =>
       participantsSelector.selectById(state, userId)?.metadata.isPresenter,
   );
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.dir() === 'rtl';
 
   const togglePresenterStatus = async () => {
     const body = create(SwitchPresenterReqSchema, {
@@ -58,7 +58,7 @@ const SwitchPresenterMenuItem = ({ userId }: ISwitchPresenterMenuItemProps) => {
     <MenuItem>
       {() => (
         <button
-          className="min-h-8 cursor-pointer py-0.5 w-full text-sm text-left leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50"
+          className={`min-h-8 cursor-pointer mt-1 py-0.5 w-full text-sm ${isRtl ? 'text-right' : 'text-left'} leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50`}
           onClick={togglePresenterStatus}
         >
           {isPresenter

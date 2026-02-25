@@ -12,7 +12,7 @@ import IconWrapper from './iconWrapper';
 
 import { useAppSelector } from '../../../../store';
 import { ParticipantsMenuIconSVG } from '../../../../assets/Icons/ParticipantsMenuIconSVG';
-
+import { useTranslation } from 'react-i18next';
 interface IMenuIconProps {
   userId: string;
   name: string;
@@ -26,6 +26,8 @@ const MenuIcon = ({
   isAdmin,
   openRemoveParticipantAlert,
 }: IMenuIconProps) => {
+  const { i18n } = useTranslation();
+  const isRtl = i18n.dir() === 'rtl';
   const defaultLockSettings = useAppSelector(
     (state) => state.session.currentRoom.metadata?.defaultLockSettings,
   );
@@ -87,7 +89,7 @@ const MenuIcon = ({
       <Menu as="div" className="flex items-center">
         {({ open }) => (
           <>
-            <MenuButton className="relative shrink-0 cursor-pointer">
+            <MenuButton className="relative shrink-0 cursor-pointer dark:text-white">
               <ParticipantsMenuIconSVG />
             </MenuButton>
             <Transition
@@ -100,8 +102,8 @@ const MenuIcon = ({
               leaveTo="transform scale-95 opacity-0"
             >
               <MenuItems
-                static
-                className="origin-top-right z-10 absolute top-8 ltr:right-0 rtl:left-0 w-60 border border-Gray-100 bg-white shadow-lg rounded-2xl overflow-hidden p-2"
+                anchor="bottom end"
+                className={`z-[99] w-60 border border-Gray-100 bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-4 ${isRtl ? 'text-right' : 'text-left'}`}
               >
                 {menuItems}
               </MenuItems>

@@ -10,7 +10,6 @@ import { create } from '@bufbuild/protobuf';
 import { useAppSelector } from '../../../../../store';
 import { participantsSelector } from '../../../../../store/slices/participantSlice';
 import { getNatsConn } from '../../../../../helpers/nats';
-
 interface ILowerHandMenuItemProps {
   userId: string;
 }
@@ -20,7 +19,8 @@ const LowerHandMenuItem = ({ userId }: ILowerHandMenuItemProps) => {
     (state) =>
       participantsSelector.selectById(state, userId)?.metadata.raisedHand,
   );
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.dir() === 'rtl';
   const conn = getNatsConn();
 
   const lowerHand = async () => {
@@ -37,7 +37,7 @@ const LowerHandMenuItem = ({ userId }: ILowerHandMenuItemProps) => {
         <MenuItem>
           {() => (
             <button
-              className="min-h-8 cursor-pointer py-0.5 w-full text-sm text-left leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50"
+              className={`min-h-8 cursor-pointer mt-1 py-0.5 w-full text-sm ${isRtl ? 'text-right' : 'text-left'} leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50`}
               onClick={lowerHand}
             >
               {t('footer.icons.lower-hand')}

@@ -32,7 +32,8 @@ const serviceToLockSettingMap: Record<
 };
 
 const LockSettingMenuItem = ({ userId }: ILockSettingMenuItemProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.dir() === 'rtl';
   const [isBusy, setIsBusy] = useState<boolean>(false);
 
   // all static values
@@ -162,7 +163,7 @@ const LockSettingMenuItem = ({ userId }: ILockSettingMenuItemProps) => {
           <MenuItem>
             {() => (
               <button
-                className="min-h-8 cursor-pointer py-0.5 w-full text-sm text-left leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50"
+                className={`min-h-8 cursor-pointer mt-1 py-0.5 w-full text-sm ${isRtl ? 'text-right' : 'text-left'} leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50`}
                 onClick={() => toggleLockSetting(feature.key)}
               >
                 {feature.isLocked ? feature.unlockText : feature.lockText}

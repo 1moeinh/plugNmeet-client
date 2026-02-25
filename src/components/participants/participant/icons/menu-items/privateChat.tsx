@@ -8,14 +8,14 @@ import {
   updateSelectedChatOption,
 } from '../../../../../store/slices/roomSettingsSlice';
 import { setActiveSidePanel } from '../../../../../store/slices/bottomIconsActivitySlice';
-
 interface IChatMenuItemProps {
   userId: string;
   name: string;
 }
 const PrivateChatMenuItem = ({ name, userId }: IChatMenuItemProps) => {
   const dispatch = useAppDispatch();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.dir() === 'rtl';
 
   const initiatePrivateChat = () => {
     dispatch(setActiveSidePanel('CHAT'));
@@ -32,7 +32,7 @@ const PrivateChatMenuItem = ({ name, userId }: IChatMenuItemProps) => {
       <MenuItem>
         {() => (
           <button
-            className="min-h-8 cursor-pointer py-0.5 w-full text-sm text-left leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50"
+            className={`min-h-8 cursor-pointer mt-1 py-0.5 w-full text-sm ${isRtl ? 'text-right' : 'text-left'} leading-none font-medium text-Gray-950 px-3 rounded-lg transition-all duration-300 hover:bg-Gray-50`}
             onClick={initiatePrivateChat}
           >
             {t('left-panel.menus.items.private-chat')}
